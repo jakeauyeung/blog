@@ -1,0 +1,55 @@
+# ---------------------- #
+#      Site Configs      #
+# ---------------------- #
+
+name: 零伍贰贰
+author: 狮子
+url: http://www.0522.org
+baseurl:
+permalink: /post/:year/:month/:day/:title.html
+paginate: 5
+paginate_path: page-:num
+excerpt_separator: '<!-- more -->'
+
+# ---------------------- #
+#         Jekyll         #
+# ---------------------- #
+
+safe: true
+auto: true
+pygments: true
+markdown: redcarpet
+timezone: Asia/Shanghai
+
+# ---------------------- #
+#      Compile Sass      #
+# ---------------------- #
+
+# run `compass help compile` in terminal to find more available options
+sass:
+no_line_comments: true
+sass_dir: _sass
+output_style: compressed
+
+
+# ---------------------- #
+#       Deployment       #
+# ---------------------- #
+
+deploy:
+repository:
+branch:
+
+
+# ---------------------- #
+#    Social Networks     #
+# ---------------------- #
+
+# weibo:
+#   username:
+#   uid:
+#   appkey:
+
+
+# google_analytics:
+google_analytics: 

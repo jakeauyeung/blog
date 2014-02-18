@@ -1,0 +1,33 @@
+---
+layout: post
+title:  "个人使用ST2的一些配置和主题"
+date:   2013-07-18 14:00:58
+categories: update
+---
+
+主题：<a href="https://github.com/allanhortle/Centurion" target="_blank">Centurion</a>
+
+预览：
+<p><a href="{{ site.url }}/src/updateimg/st2-theme.png"><img width="300" height="200" src="{{ site.url }}/src/updateimg/st2-theme.png"></a></p>
+
+ST2的配置信息：
+{% highlight json %}
+{
+	"caret_style": "phase",
+	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+	"font_face": "YaHei Consolas Hybrid",
+	"font_size": 10,
+	"highlight_line": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
+	"margin": 4,
+	"tab_size": 2,
+	"theme": "Centurion.sublime-theme",
+	"word_wrap": true
+}
+{% endhighlight %}
+

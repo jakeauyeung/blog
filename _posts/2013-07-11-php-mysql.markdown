@@ -1,0 +1,52 @@
+---
+layout: post
+title:  "CENTOS6.0安装配置php&mysql"
+date:   2013-07-11 22:10:58
+categories: update
+---
+
+mysql的安装我直接使用了yum来，不想自己去编译了，麻烦死了。
+
+逐条执行下面命令就可以了：
+{% highlight bash %}
+yum install mysql
+yum install mysql-server
+yum install mysql-devel
+chgrp -R mysql /var/lib/mysql
+chmod -R 770 /var/lib/mysql
+service mysqld start 
+mysql
+SET PASSWORD FOR "root"@"localhost" = PASSWORD("secret_password"); 
+{% endhighlight %}
+php方便我是选择自己来编译，这部分我也折腾了好久啊，主要时间是花在下各种依赖包。
+PHP可以去官网下载，我目前的版本是：<a href="http://php.net/get/php-5.4.10.tar.gz/from/a/mirror" target="_blank">PHP 5.4.10 (tar.gz)</a>
+
+下面是编译：
+{% highlight bash %}
+./configure --prefix=/usr/local/php5 -with-config-file-path=/usr/local/php5/etc --with-mysql=mysqlnd --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd -with-openssl -enable-fpm -enable-mbstring -with-freetype-dir -with-jpeg-dir -with-png-dir -with-zlib-dir -with-libxml-dir=/usr -enable-xml -with-mhash -with-mcrypt -enable-pcntl -enable-sockets  -with-bz2 -with-curl -with-curlwrappers -enable-mbregex -with-gd -enable-gd-native-ttf -enable-zip -enable-soap -with-iconv -enable-bcmath -enable-shmop -enable-sysvsem -enable-inline-optimization -with-ldap -with-ldap-sasl -enable-pdo -with-pdo-mysql 
+{% endhighlight %}
+这里我问题出现在定义mysql路径上面，其实如果你的PHP版本是5.3以上的话，可以直接用
+{% highlight bash %}
+--with-mysql=mysqlnd --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd
+{% endhighlight %}
+php5.3以后可以直接使用PHP内置的mysqlnd驱动，不用去找外部的MYSQL库
+php5.3以后的版本是自带php-fpm的，编译好PHP也就编译了php-fpm.
+
+php-fpm 5.4.7 如何关闭 重启？
+php 5.4.7 下的php-fpm 不再支持 php-fpm 以前具有的 /usr/local/php/sbin/php-fpm (start|stop|reload)等命令，需要使用信号控制：
+master进程可以理解以下信号
+INT, TERM 立刻终止 QUIT 平滑终止 USR1 重新打开日志文件 USR2 平滑重载所有worker进程并重新载入配置和二进制模块
+
+示例：
+php-fpm 关闭：
+{% highlight bash %}
+kill -INT `cat /usr/local/php/var/run/php-fpm.pid` 
+{% endhighlight %}
+php-fpm 重启：
+{% highlight bash %}
+kill -USR2 `cat /usr/local/php/var/run/php-fpm.pid` 
+{% endhighlight %}
+查看php-fpm进程数：
+{% highlight bash %}
+ps aux | grep -c php-fpm
+{% endhighlight %}

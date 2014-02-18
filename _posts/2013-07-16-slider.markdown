@@ -1,0 +1,125 @@
+---
+layout: post
+title:  "Jquery：自动切换图片幻灯片"
+date:   2013-07-16 7:00:58
+categories: update
+---
+
+Javascript：
+{% highlight javascript %}
+<script>
+$.fn.iFadeSlide = function(iSet){
+	/*
+	 * iSet可选参数说明:
+	 * iSet.field==>幻灯区域内的图片集
+	 * iSet.ico==>按钮钩子
+	 * iSet.high==>按钮高亮样式
+	 * iSet.interval==>图片切换时间
+	 * iSet.leaveTime==>不触发鼠标划入事件的最大时间值
+	 * iSet.fadeInTime==>淡入时间
+	 * iSet.fadeOutTime==>淡出时间
+	 * 调用方式$(document).iFadeSlide({field:'...',ico:'...',...})
+	 */
+    iSet = $.extend({high:'high',interval:5000,leaveTime:150,fadeOutTime:1000,fadeInTime:600},iSet);
+    var imgField = $(iSet.field || '#slide>img');
+    var icoField = $(iSet.ico || '#ico');
+	var curIndex = 0;
+    var slideInterval = iSet.interval || 3000;
+    var hoverTime = iSet.leaveTime || 150;
+    var fadeOutTime = iSet.fadeOutTime || 400;
+    var fadeInTime = iSet.fadeInTime || 400;
+    var icos=null, fastHoverFun = null, autoSlideFun = null, hasIcoHighCls = null, changeFun = null,max=null;;
+    var icoHtml = '<ul>';
+	max=imgField.size();
+	//按图片传入对应的按钮
+    imgField.each(function(i){
+        icoHtml += '<li>' + (i + 1) + '</li>';
+    });
+    icoHtml += '</ul>';
+    icoField.append(icoHtml);
+	//淡入淡出函数
+    changeFun = function(n){
+        imgField.filter(':visible').fadeOut(fadeOutTime, function(){
+            imgField.eq(n).fadeIn(fadeInTime)
+            icos.eq(n).addClass(iSet.high).siblings().removeClass(iSet.high);
+        });
+    }
+    icos = icoField.find('ul>li');
+	//为第一个按键初始化高亮
+    icos.first().addClass(iSet.high);
+	//按钮鼠标划入划出事件
+    icos.hover(function(){
+        clearInterval(autoSlideFun);
+        curIndex = icos.index(this);
+        hasIcoHighName = $(this).hasClass(iSet.high);
+		//setTimeout避免用户快速(无意识性划过)划过时触发事件
+        fastHoverFun = setTimeout(function(){
+			//鼠标划入当前图片按钮时不闪烁
+            if (!hasIcoHighName) {
+                changeFun(curIndex);
+            }
+        }, hoverTime);
+    }, function(){
+        clearTimeout(fastHoverFun);
+		//自动切换
+        autoSlideFun = setInterval(function(){
+            curIndex++;
+            changeFun(curIndex);
+            if (curIndex ==max ) {
+				changeFun(0);
+                curIndex = 0;
+            }
+        }, slideInterval)
+    }).eq(0).trigger('mouseleave');
+	
+    //当鼠标划入图片区域时停止切换
+    imgField.hover(function(){
+        curIndex = imgField.index(this);
+        clearInterval(autoSlideFun);
+    }, function(){
+        icos.eq(curIndex).trigger('mouseleave');
+    });
+}
+
+$(function(){
+	//SAMPLE-A
+	$(document).iFadeSlide();
+	
+	//SAMPLE-B
+	$(document).iFadeSlide({
+		field: $('div#slide_b a'),
+		ico:$('div.ico_b'),
+        high: 'high_b',
+        interval: 2000
+	});
+	
+	//SAMPLE-C
+	$(document).iFadeSlide({
+		field: $('div#slide_c img'),
+		ico: $('div.ico_c'),
+		fadeOutTime:100,
+		fadeInTime: 200
+	});
+});
+</script>
+{% endhighlight %}
+
+HTML：
+{% highlight html %}
+<div class="slider" id="slide">
+	<img src="src/img/temp686x248.jpg" alt="">
+	<img src="src/img/temp686x248.jpg" alt="">
+	<img src="src/img/temp686x248.jpg" alt="">
+	<div id="ico"></div>
+</div>
+{% endhighlight %}
+
+CSS：
+{% highlight css %}
+/*silder*/
+.slider { position:relative;overflow:hidden; width: 686px;height: 248px;margin-bottom: 10px;}
+.slider img{width:686px; height:248px;cursor:pointer}
+.slider #ico{position:absolute; right:8px;bottom:6px}
+.slider #ico li{background:#fff;float:left;display:block; width:24px; height:24px; line-height:22px;font-size: 18px; font-family:Arial, Helvetica, sans-serif;text-align:center;margin:2px 5px;font-style:italic;border-radius: 15px;-moz-border-radius: 15px;-webkit-border-radius: 15px; cursor:pointer}
+.slider #ico li.high{background:#d21e25;color:#fff;font-style:italic;  font-weight:bolder}
+{% endhighlight %}

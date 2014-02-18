@@ -1,0 +1,88 @@
+---
+layout: post
+title:  "JAVASCRIPT&HTML&CSS常用代码片段"
+date:   2013-07-12 6:10:58
+categories: update
+---
+
+<b>JS实现不刷新页面更换验证码</b>
+{% highlight bash %}
+<script language="JavaScript">
+function reloadcode(){
+var changeCode=document.getElementById("id");
+changeCode.setAttribute("src","images/chknumber.js?"+Math.random());
+//这里必须加入随机数，道理很简单，地址相同不会重新加载，有了随机参数，但是不影响验证码的生成
+}
+</script>
+{% endhighlight %}
+
+<b>回车键提交与不提交表单的解决方法</b>
+{% highlight bash %}
+<script language="JavaScript">
+document.getElementsByTagName('form')[0].onkeydown = function(e){
+    var e = e || event;
+    var keyNum = e.which || e.keyCode;
+    return keyNum==13 ? false : true;
+};
+</script>
+{% endhighlight %}
+
+<b>事件冒泡</b>
+{% highlight bash %}
+<script type="text/javascript">
+var myDiv = $(".n-city-list");
+$(function () {
+$(".n-city-select").click(function (event) {
+   if(null != myDiv){
+$(myDiv).hide();
+}
+$(this).next().show();//调用显示DIV方法
+$(document).one("click", function () {//对document绑定一个影藏Div方法
+$(myDiv).hide();
+});
+event.stopPropagation();//阻止事件向上冒泡
+});
+$(myDiv).click(function (event) {
+event.stopPropagation();//阻止事件向上冒泡
+});
+});
+</script>
+{% endhighlight %}
+
+<b>A标签点击出现虚线的解决办法</b>
+{% highlight bash %}
+outline:none; hide-focus:expression_r(this.hideFocus=true);
+{% endhighlight %}
+
+<b>滚动条下拉一个高度出现回到顶部按钮</b>
+
+Javascript:
+{% highlight javascript %}
+//top
+var J_top = $("#J_top");
+var j_tops = J_top.offset().top;
+J_top.hide();
+$(function () {
+$(window).scroll(function(){
+if ($(window).scrollTop()>100){
+J_top.show();
+}
+else
+{
+J_top.hide();
+}
+});
+
+//当点击跳转链接后，回到页面顶部位置
+$(window).scroll(function () { J_top.animate({ top: $(window).scrollTop() + j_tops }, { queue: false, duration: 500 }) });
+J_top.click(function(){
+$('body,html').animate({scrollTop:0},1000);
+return false;
+});
+});
+{% endhighlight %}
+
+CSS:
+{% highlight css %}
+#J_top{ width:57px; height:57px; position:absolute; background:url(../../img/qieke/btn.png) no-repeat 0px -293px; top:70%;right:50%;margin-right:-560px; cursor:pointer;}
+{% endhighlight %}
