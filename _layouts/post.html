@@ -1,7 +1,12 @@
 ---
 layout: default
 ---
-<h2 class="post-title"><a href="/">&lt;&lt;::Index</a><span>{{ page.date | date: "%Y-%m-%d" }}</span>{{ page.title }}</h2>
+<a href="/" class="post-back">&lt;&lt;返回首页</a>
+<article class="entry" role="article">
+
+<h2 class="page-title">{{ page.title }}<p><span>{{ page.date | date: "%Y-%m-%d" }}</span></p></h2>
 <div class="post">
 {{ content }}
 </div>
+</article>
+<a href="/" class="post-back">&lt;&lt;返回首页</a>

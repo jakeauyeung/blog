@@ -4,7 +4,7 @@
 
 name: 零伍贰贰
 author: 狮子
-url: http://www.0522.org
+url: http://0522.org
 baseurl:
 permalink: /post/:year/:month/:day/:title.html
 paginate: 5
@@ -17,7 +17,7 @@ excerpt_separator: '<!-- more -->'
 
 safe: true
 auto: true
-pygments: true
+pygments: false
 markdown: redcarpet
 timezone: Asia/Shanghai
 
