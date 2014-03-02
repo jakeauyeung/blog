@@ -551,8 +551,8 @@ a:hover{
   color: #666;
   padding-top: 20px;
 }
-/* 当浏览器的可视区域小于650px */
-@media screen and (max-width: 650px) {
+/* 当浏览器的可视区域小于780px */
+@media screen and (max-width: 780px) {
   .header-filter{
   height:100px;
   background:url('http://jakeauyeung.qiniudn.com/filter.png');
