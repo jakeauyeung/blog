@@ -550,6 +550,10 @@ a:hover{
   font-size: 12px;
   color: #666;
   padding-top: 20px;
+  padding-right: 10px;
+}
+.pagination{
+  padding-left: 10px;
 }
 /* 当浏览器的可视区域小于780px */
 @media screen and (max-width: 780px) {
