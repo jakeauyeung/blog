@@ -430,6 +430,9 @@ pre{
   border-radius: 5px;
   background: #f6f6f6;
   font-size: 12px;
+  word-wrap: break-word;
+  word-break: break-all; 
+  color: #666;
 }
 body{
   font-family: "Hiragino Sans GB","Microsoft YaHei",\5FAE\8F6F\96C5\9ED1,tahoma,arial,simsun,\5B8B\4F53;
