@@ -536,9 +536,6 @@ a:hover{
   color: #999;
   font-weight: normal;
 }
-.contect .entry .entry-content{
-  padding: 10px;
-}
 .contect .entry .post{
   margin: 10px;
 }
@@ -568,6 +565,10 @@ a:hover{
   margin-right: 5px;
   background-color: #87CEEB;
   color:#fff;
+}
+/*comments*/
+.disqus_thread{
+  margin: 10px;
 }
 /* 当浏览器的可视区域小于780px */
 @media screen and (max-width: 780px) {
