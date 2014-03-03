@@ -22,34 +22,6 @@ markdown: redcarpet
 timezone: Asia/Shanghai
 
 # ---------------------- #
-#      Compile Sass      #
+# disqus #
 # ---------------------- #
-
-# run `compass help compile` in terminal to find more available options
-sass:
-no_line_comments: true
-sass_dir: _sass
-output_style: compressed
-
-
-# ---------------------- #
-#       Deployment       #
-# ---------------------- #
-
-deploy:
-repository:
-branch:
-
-
-# ---------------------- #
-#    Social Networks     #
-# ---------------------- #
-
-# weibo:
-#   username:
-#   uid:
-#   appkey:
-
-
-# google_analytics:
-google_analytics: 
+disqus: jakeauyeung
