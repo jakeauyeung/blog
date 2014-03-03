@@ -2,8 +2,8 @@
 layout: default
 ---
 {% for post in paginator.posts %}
+<h2 class="page-title"><a href="{{ post.url }}">{{ post.title }}</a><p><span>日期：</span>{{ post.date | date: "%Y-%m-%d" }}</p></h2>
 <article class="entry" role="article">
-  <h2 class="page-title"><a href="{{ post.url }}">{{ post.title }}</a><p><span>日期：</span>{{ post.date | date: "%Y-%m-%d" }}<span>分类：</span>{{ page.categories }}....{{ site.categories.CATEGORY }}</p></h2>
   <div class="entry-content">
   {% assign fragments = post.content | split: site.excerpt_separator %}
   {% assign size = fragments | size %}

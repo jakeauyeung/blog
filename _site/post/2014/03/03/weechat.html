@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>MAC下面IRC客户端WEECHAT基本操作方法归纳</title>
+<link rel="stylesheet" type="text/css" href="http://0522.org/static/css/min/css.css" />
+<link rel="shortcut icon" href="http://0522.org/favicon.ico" type="image/x-icon">
+<link rel="icon" href="http://0522.org/favicon.ico" type="image/x-icon">
+<link rel="alternate" type="application/rss+xml" href="http://0522.org/rss.xml"  />
+</head>
+<body>
+
+  <header class="header">
+  <div class="header-filter">
+  <a href="/" class="logo"><img src="http://jakeauyeung.qiniudn.com/header.jpg" alt="0522"></a>
+    <ul>
+      <li><a href="/">博客</a></li>
+      <li><a href="/about.html">关于</a></li>
+      <li><a href="http://weibo.com/u/1968264195" target="_blank">微博</a></li>
+      <li><a href="https://github.com/jakeauyeung" target="_blank">Github</a></li>
+    </ul>
+   </div>
+  </header>
+  <div class="contect">
+   <a href="/" class="post-back">&lt;&lt;返回首页</a>
+<article class="entry" role="article">
+
+<h2 class="page-title">MAC下面IRC客户端WEECHAT基本操作方法归纳<p><span>2014-03-03</span></p></h2>
+<div class="post">
+<p><img src="http://jakeauyeung.qiniudn.com/weechat.png" alt="weechat"></p>
+
+<h3>安装</h3>
+
+<p>前提先要安装好homebrew</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)”
+</code></pre></div>
+<p>之后安装weechat</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">brew install weechat
+</code></pre></div>
+<p>会花几分钟安装相关依赖。</p>
+
+<p>运行weechat</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">weechat
+</code></pre></div>
+<p>添加IRC服务器</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">weechat&gt; /server add example irc.example.com/6669 -ssl -password=PASSWORD -ssl_verify=no
+weechat&gt; /connect example
+</code></pre></div>
+<p>加入IRC频道</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">/join #atom
+</code></pre></div>
+</div>
+</article>
+<a href="/" class="post-back">&lt;&lt;返回首页</a>
+
+   </div>
+   <footer class="footer">
+     &copy;Jake AuYeung Powered by <a href="https://github.com" title="Github" target="_blank">Github</a> / <a href="http://jekyllrb.com" title="Jekyll" target="_blank">Jekyll</a>
+   </footer>
+</body>
+</html>
