@@ -2,4 +2,40 @@
 layout: default
 ---
 
-about
+<style type="text/css">
+	.about{
+		padding: 30px 0px 30px 20px;
+	}
+	.about dl{
+		margin: 0;
+		padding:0;
+		padding-left: 170px;
+	}
+	.about dl dt{
+		float: left;
+		margin-left: -170px;
+		display: inline;
+	}
+	.about dl dd{
+		margin: 0;
+		padding:0;
+		
+	}
+	.about dl dd:before{
+  content: '\2022';
+  }
+	.about dl dd span{
+		color: #666;
+	}
+</style>
+
+<div class="about">
+	<dl>
+		<dt><img src="http://jakeauyeung.qiniudn.com/header.jpg"></dt>
+		<dd>昵称：<span>狮子</span></dd>
+		<dd>出生年月：<span>1983.5</span></dd>
+		<dd>所在地：<span>上海</span></dd>
+		<dd>兴趣：<span>台球，游泳，电影，等...</span></dd>
+		<dd>邮件：<span>jakeauyeung(a.t)gmail.com</span></dd>
+	</dl>
+</div>
