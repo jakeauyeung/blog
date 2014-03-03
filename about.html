@@ -19,13 +19,31 @@ layout: default
 	.about dl dd{
 		margin: 0;
 		padding:0;
-		
+	}
+	.about dl dd img{
+		border:1px solid #000;
 	}
 	.about dl dd:before{
   content: '\2022';
   }
 	.about dl dd span{
 		color: #666;
+	}
+	@media screen and (max-width: 780px) {
+		.about dl dd img{
+			width: 100px;
+		border:1px solid #000;
+	}
+	.about dl{
+		margin: 0;
+		padding:0;
+		padding-left: 120px;
+	}
+	.about dl dt{
+		float: left;
+		margin-left: -120px;
+		display: inline;
+	}
 	}
 </style>
 
