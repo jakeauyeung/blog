@@ -567,7 +567,7 @@ a:hover{
   color:#fff;
 }
 /*comments*/
-.disqus_thread{
+#disqus_thread{
   margin: 10px;
 }
 /* 当浏览器的可视区域小于780px */
