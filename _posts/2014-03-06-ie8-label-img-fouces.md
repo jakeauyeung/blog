@@ -6,6 +6,7 @@ categories: update
 ---
 
 如果你的项目用如下结构的话，那么你可能碰到一下几个BUG
+
 ```
 <ul>
     <li>
@@ -33,6 +34,7 @@ label一定要加for属性，然后input也必须加id，才能产生效果
 ###BUG two
 当有img存在的情况下IE7.8下面无法出发点击事件，解决方法是加一个span标签，设置背景或者用滤镜
 如
+
 ```
 <span style="position:relative;
         top:-180px;display:block;height:180px;width:280px;
