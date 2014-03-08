@@ -82,10 +82,13 @@ if (!defined('HTTPS')) {
 }
 ```
 以上代码生成图片估计用于统计哪些域名使用了cscart
+
 ```
 <img src="http://www.cs-cart.com/images/background.gif" height="1" width="1" alt="" />
 ```
+
 * 6.design/backend/templates/index.tpl
+
 ```
 <div class="admin-content-wrap">
   {hook name="index:main_content"}{/hook}
