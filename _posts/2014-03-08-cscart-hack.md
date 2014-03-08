@@ -12,6 +12,7 @@ categories: update
 
 * 1.$config['updatesserver'] = ''; //config.php
 * 2.utf8.php
+
 ```
 $key = 'crash'; //这里的值用一次要改一次，或清缓存
 fn_set_storage_data('store_mode', 'full');
@@ -24,6 +25,7 @@ if (!empty($_SESSION[fn_simple_decode_str('npef`sfdifdl')])) {
     //....
 }
 ```
+
 * 3.把上面代码删掉还原utf8.php :)
 
 * 4.design/backend/templates/index.tpl, 第41行，删掉或注释掉
