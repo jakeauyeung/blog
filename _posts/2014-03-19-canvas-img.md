@@ -77,4 +77,4 @@ body {
 </body>
 ```
 
-[js](http://jsfiddle.net/z3JtC/4/)
+代码demo：[http://jsfiddle.net/z3JtC/4/](http://jsfiddle.net/z3JtC/4/)
