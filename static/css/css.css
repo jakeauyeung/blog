@@ -570,6 +570,29 @@ a:hover{
 #disqus_thread{
   margin: 10px;
 }
+/*instagram*/
+.instagram {
+    margin-left: 20px;
+    *zoom: 1;
+  }
+  .instagram:before{
+    clear: both;
+    display: table;
+    content: ''
+  }
+  .instagram a{
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+  }
+  .instagram a img{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    border:1px solid #b2b2b2;
+  }
 /* 当浏览器的可视区域小于780px */
 @media screen and (max-width: 780px) {
   .header-filter{
@@ -623,8 +646,32 @@ a:hover{
   *zoom: 1;
   color: #fff;
   text-decoration: none;
-  padding: 2px 5px;
+  padding: 2px 3px;
   background: url('http://jakeauyeung.qiniudn.com/bg-alapha.png');
 }
+  .instagram {
+    margin-left: 10px;
+    *zoom: 1;
+  }
+  .instagram:before{
+    clear: both;
+    display: table;
+    content: ''
+  }
+  .instagram a{
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+  }
+  .instagram a img{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    width: 100px;
+    height: 100px;
+    border:1px solid #b2b2b2;
+  }
 
 }
