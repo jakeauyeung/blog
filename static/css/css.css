@@ -572,7 +572,7 @@ a:hover{
 }
 /*instagram*/
 .instagram {
-    margin-left: 20px;
+    margin-left: 15px;
     *zoom: 1;
   }
   .instagram:before{
@@ -588,9 +588,7 @@ a:hover{
     *zoom: 1;
   }
   .instagram a img{
-    display: inline-block;
-    *display: inline;
-    *zoom: 1;
+    display: block;
     border:1px solid #b2b2b2;
   }
 /* 当浏览器的可视区域小于780px */
@@ -666,9 +664,7 @@ a:hover{
     *zoom: 1;
   }
   .instagram a img{
-    display: inline-block;
-    *display: inline;
-    *zoom: 1;
+    display: block;
     width: 140px;
     height: 140px;
     border:1px solid #b2b2b2;
