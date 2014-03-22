@@ -20,7 +20,6 @@ layout: nil
     <updated>{{ post.date | date_to_xmlschema }}</updated>
     <link href="{{ site.url }}{{ post.url }}" />
     <content type="html"><![CDATA[{{ post.content }}]]></content>
-    <summary type="html"><![CDATA[{{ post.summary }}]]></summary>
   </entry>
   {% endfor %}
 </feed>
