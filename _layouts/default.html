@@ -6,22 +6,14 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <title>{{ page.title }} - {{ site.name }}</title>
-<script type="text/javascript" src="http://cdn.staticfile.org/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="http://jakeauyeung.qiniudn.com/jquery-tapir.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{{ site.url }}/static/css/min/css.css" />
 <link rel="shortcut icon" href="{{ site.url }}/favicon.ico" type="image/x-icon">
 <link rel="icon" href="{{ site.url }}/favicon.ico" type="image/x-icon">
 <link rel="alternate" type="application/rss+xml" href="{{ site.url }}/rss.xml"  />
 </head>
 <body>
-
   <header class="header">
   <div class="header-filter">
-  <div class="search">
-  <form action="search.html">
-  <input type="text" name="query" class="search-query" placeholder="Search">
-  </form>
-  </div>
   <a href="/" class="logo"><img src="http://jakeauyeung.qiniudn.com/header.jpg" alt="0522"></a>
     <ul>
       <li><a href="/">博客</a></li>
@@ -37,22 +29,5 @@
    <footer class="footer">
      &copy;Jake AuYeung Powered by <a href="https://github.com" title="Github" target="_blank">Github</a> / <a href="http://jekyllrb.com" title="Jekyll" target="_blank">Jekyll</a>
    </footer>
-<script type="text/javascript">
-try{
-$.ajax({
-  type: 'GET',
-  dataType: 'jsonp',
-  cache: false,
-  url: 'https://api.instagram.com/v1/users/321657074/media/recent/?access_token=321657074.71a398b.fbb9430e14014aa0a8fa05bf05928f58',
-  success: function(data){
-    var instagram = $(".instagram")
-    $.each(data.data, function(index){
-      instagram.append('<a href="'+data.data[index].link+'" target="_blank"><img src="'+data.data[index].images.thumbnail.url+'"/></a>')
-    })
-  }
-})
-}catch(e){}
-
-</script>
 </body>
 </html>

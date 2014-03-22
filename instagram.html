@@ -4,3 +4,19 @@ title: instagram
 ---
 
 <div class="instagram"> </div>
+
+<script type="text/javascript" src="http://cdn.staticfile.org/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+$.ajax({
+  type: 'GET',
+  dataType: 'jsonp',
+  cache: false,
+  url: 'https://api.instagram.com/v1/users/321657074/media/recent/?access_token=321657074.71a398b.fbb9430e14014aa0a8fa05bf05928f58',
+  success: function(data){
+    var instagram = $(".instagram")
+    $.each(data.data, function(index){
+      instagram.append('<a href="'+data.data[index].link+'" target="_blank"><img src="'+data.data[index].images.thumbnail.url+'"/></a>')
+    })
+  }
+});
+</script>
