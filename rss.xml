@@ -1,18 +1,25 @@
 ---
 layout: nil
 ---
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.sitemaps.org/schemas/sitemap-image/1.1" xmlns:video="http://www.sitemaps.org/schemas/sitemap-video/1.1">
-  {% for post in site.posts %}
-    {% unless post.hide %}
-      <url>
-        <loc>{{ site.url }}{{ post.url }}</loc>
-        {% if post.lastmod %}
-        <lastmod>{{ post.lastmod | date_to_xmlschema }}</lastmod>
-        {% else %}
-        <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
-        {% endif %}
-      </url>
-    {% endunless %}
-  {% endfor %}
-</urlset>
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>0522</title>
+    <link href="http://dmayance.com/atom.xml" rel="self"/>
+    <link href="http://dmayance.com/"/>
+    <updated>{{ site.time | date_to_xmlschema }}</updated>
+    <id>http://0522.org/</id>
+    <author>
+        <name>Jake AuYeung</name>
+        <email>jakeauyeung@gmail.com</email>
+    </author>
+    
+    {% for post in site.posts %}
+    <entry>
+        <title>{{ post.title }}</title>
+        <link href="http://0522.org/{{ post.url }}"/>
+        <updated>{{ post.date | date_to_xmlschema }}</updated>
+        <id>http://0522.org/{{ post.id }}</id>
+        <content type="html">{{ post.content | xml_escape }}</content>
+    </entry>
+    {% endfor %}
+</feed>

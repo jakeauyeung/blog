@@ -6,10 +6,9 @@ name: 狮子
 author: 狮子
 url: http://0522.org
 baseurl:
-permalink: /post/:year/:month/:day/:title.html
+permalink: /:title
 paginate: 5
 paginate_path: page-:num
-excerpt_separator: '<!-- more -->'
 
 # ---------------------- #
 #         Jekyll         #
