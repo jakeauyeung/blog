@@ -2,26 +2,25 @@
 layout: nil
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns="http://www.w3.org/2005/Atom">
-  <channel>
-  <id>{{ site.url }}</id>
-  <title>{{ site.name }}></title>
-  <pubDate>{{ site.time | date_to_xmlschema }}</pubDate>
-  {% if site.author %}
+<feed xmlns="http://www.w3.org/2005/Atom">
+  
+  <title type="text" xml:lang="en">{{ site.root_desc }}</title>
+  <link type="application/atom+xml" href="http://paulstamatiou.com/feed/" rel="self"/>
+  <link type="text" href="http://paulstamatiou.com" rel="alternate"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>http://0522.org</id>
   <author>
-    <name>{{ site.author }}></name>
-    {% if site.email %}<email>{{ site.email }}></email>{% endif %}
+    <name>Jake AuYeung</name>
   </author>
-  {% endif %}
-  <link href="{{ site.url }}/rss.xml" rel="self" />
-  {% for post in site.posts %}
-  <item>
-    <id>{{ site.url }}{{ post.id }}</id>
-    <title>{{ post.title }}></title>
-    <pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
-    <link href="{{ site.url }}{{ post.url }}" />
-    <description>{{ post.content }}></description>
-  </item>
+  <rights>Copyright (c) 2013-2014, Jake AuYeung; all rights reserved.</rights>
+  
+  {% for post in site.posts limit:20 %}
+  <entry>
+    <title>{{ post.title }}</title>
+    <link href="http://paulstamatiou.com{{ post.url }}"/>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    <id>http://paulstamatiou.com{{ post.id }}</id>
+    <content type="html">{{ post.content | xml_escape }}{% include rss_footer.html %}</content>
+  </entry>
   {% endfor %}
- </channel>
-</rss>
+</feed>
