@@ -10,6 +10,7 @@
 <link rel="shortcut icon" href="{{ site.url }}/favicon.ico" type="image/x-icon">
 <link rel="icon" href="{{ site.url }}/favicon.ico" type="image/x-icon">
 <link rel="alternate" type="application/rss+xml" href="{{ site.url }}/atom.xml"  />
+<script type="text/javascript" src="http://cdn.staticfile.org/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
   <header class="header">
@@ -44,5 +45,26 @@
   })();
 
 </script>
+ <!-- keyboard shortkey -->
+    <script>
+    $(function(){
+      $(document).keydown(function(e) {
+        var url = false;
+        if (e.which == 37 || e.which == 72) {  // Left arrow and J
+          {% if page.previous %}
+            url = '{{page.previous.url}}';
+          {% endif %}
+        } else if (e.which == 39 || e.which == 76) {  // Right arrow and K
+          {% if page.next %}
+            url = '{{page.next.url}}';
+          {% endif %}
+        }
+        if (url) {
+          window.location = url;
+        }
+      }
+    );
+  })
+  </script>
 </body>
 </html>
