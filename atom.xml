@@ -4,7 +4,7 @@ layout: nil
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>0522</title>
-    <link href="http://0522.org/rss.xml" rel="self"/>
+    <link href="http://0522.org/atom.xml" rel="self"/>
     <link href="http://0522.org/"/>
     <updated>{{ site.time | date_to_xmlschema }}</updated>
     <id>http://0522.org/</id>
