@@ -11,6 +11,8 @@ categories: update
 
 ####解决
 
+{% gist 11239106 %}
+
 ```
 $(function(){
       $(document).keydown(function(e) {
